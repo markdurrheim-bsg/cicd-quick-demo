@@ -38,7 +38,7 @@ jobs:
           node-version: 24
           cache: 'npm'
       - run: npm ci
-      - run: npm run build --if-present
+      - run: npm run build --if-present -- --base-href /cicd-quick-demo/
       - run: npm test
       
       ## DEPLOYMENT STEPS
@@ -47,7 +47,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'dist/demo-cicd-basics'
+          path: 'dist/demo-cicd-basics/browser'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
