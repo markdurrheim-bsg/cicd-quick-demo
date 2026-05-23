@@ -40,14 +40,14 @@ jobs:
       - run: npm ci
       - run: npm run build --if-present
       - run: npm test
-        
+      
+      ## DEPLOYMENT STEPS
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository
-          path: 'dist/demo-cicd-basics/browser'
+          path: 'dist/demo-cicd-basics'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
